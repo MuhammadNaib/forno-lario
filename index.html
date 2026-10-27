@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forno Lario · Wood-fired pizza in Varenna, Lake Como</title>
+<meta name="description" content="Forno Lario is a wood-fired pizzeria on the lakefront in Varenna. Seven pizzas, one dough, one oven. Build your order and send it on WhatsApp on WhatsApp.">
+<meta name="theme-color" content="#0B0F12">
+<meta property="og:title" content="Forno Lario · Wood-fired pizza in Varenna">
+<meta property="og:description" content="Seven pizzas, one dough, one oven. Build your order and send it on WhatsApp.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0F12'/><circle cx='16' cy='16' r='8' fill='none' stroke='%23E2582B' stroke-width='2.4'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Geist:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="assets/pizza-diavola-cut.webp">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<div class="sc-grain" aria-hidden="true"></div>
+
+<a class="skip" href="#menu">Skip to the menu</a>
+
+<!-- ============================================================ HEADER -->
+<header class="bar">
+  <a class="bar__mark" href="#top" data-jump="top">Forno <em>Lario</em></a>
+  <nav class="bar__nav" aria-label="Sections">
+    <details class="index">
+      <summary>Menu <span class="index__n">7</span></summary>
+      <ol class="index__list">
+        <li><a href="#p1" data-jump="p1"><span>1</span> Diavola del Lario <b>€12</b></a></li>
+        <li><a href="#p2" data-jump="p2"><span>2</span> Margherita <b>€9</b></a></li>
+        <li><a href="#p3" data-jump="p3"><span>3</span> Peperoni e Olive <b>€11</b></a></li>
+        <li><a href="#p4" data-jump="p4"><span>4</span> Quattro Formaggi <b>€12</b></a></li>
+        <li><a href="#p5" data-jump="p5"><span>5</span> Ortolana <b>€12</b></a></li>
+        <li><a href="#p6" data-jump="p6"><span>6</span> Prosciutto e Rucola <b>€14</b></a></li>
+        <li><a href="#p7" data-jump="p7"><span>7</span> Marinara <b>€8</b></a></li>
+      </ol>
+    </details>
+    <a class="bar__link" href="#oven" data-jump="oven">Oven</a>
+    <a class="bar__link" href="#visit" data-jump="visit">Visit</a>
+    <a class="bar__slip" href="#order" data-jump="order">Order <span class="js-count">0</span></a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================================================ 1 · HERO
+     The gaze lowers from the lake to the table. Five planes, each on its own
+     rate, all driven by --sc-p from the pinned act (see site.css .hero). -->
+<section id="top" class="hero" data-sc-act="pin" data-sc-span="2.1" data-sc-drift="#0B0F12">
+  <div data-sc-stage class="hero__stage">
+    <picture class="hero__lake">
+      <source media="(max-width: 860px)" srcset="assets/lake-m.webp" width="1080" height="1920">
+      <img src="assets/lake-d.webp" width="2560" height="1440" alt="Varenna on Lake Como at dusk, the coloured houses lit along the water">
+    </picture>
+    <div class="hero__dusk" aria-hidden="true"></div>
+
+    <div class="hero__mark">
+      <h1 class="wordmark">Forno <em>Lario</em></h1>
+      <p class="hero__line">Wood-fired pizza at the water's edge in Varenna.</p>
+    </div>
+
+    <div class="hero__table" aria-hidden="true"></div>
+    <div class="hero__ember" aria-hidden="true"></div>
+
+    <div class="hero__dish">
+      <div class="hero__shadow" aria-hidden="true"></div>
+      <img class="hero__pizza" src="assets/pizza-diavola-cut.webp" width="1600" height="1600" alt="Diavola pizza with spicy salame on a round wooden board">
+    </div>
+
+    <article class="label label--hero" id="p1" data-sc-cue="0.56 1.08 0.22 0.02">
+      <p class="label__no">N°1</p>
+      <h2 class="label__name">Diavola del Lario</h2>
+      <p class="label__what">Tomato, fior di latte, spicy salame, Calabrian chilli oil</p>
+      <p class="label__facts"><span>Base · Tomato</span><span>Diet · Meat</span></p>
+      <div class="label__buy">
+        <span class="label__price">€12</span>
+        <button class="add" type="button" data-id="diavola" data-name="Diavola del Lario" data-price="12">Add to order</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ 2 · CARTA (pan) -->
+<section id="menu" class="carta" data-sc-act="pan" data-sc-span="3.1" data-sc-drift="#0E1417">
+  <div data-sc-stage class="carta__stage">
+    <div class="rail" data-sc-pan="0.04">
+      <header class="rail__lead">
+        <h2 class="sc-display sc-display--lg">The menu</h2>
+        <p class="sc-body">Seven pizzas, one dough, one oven. Add one and it goes straight onto your order slip.</p>
+      </header>
+
+      <article class="dish" id="p2">
+        <figure class="dish__photo" data-sc-tilt="5"><img src="assets/menu-1.webp" width="1100" height="1100" loading="lazy" alt="Margherita with torn fior di latte and basil leaves"></figure>
+        <div class="label">
+          <p class="label__no">N°2</p>
+          <h3 class="label__name">Margherita</h3>
+          <p class="label__what">Tomato, fior di latte, basil, olive oil</p>
+          <p class="label__facts"><span>Base · Tomato</span><span>Diet · Vegetarian</span></p>
+          <div class="label__buy"><span class="label__price">€9</span><button class="add" type="button" data-id="margherita" data-name="Margherita" data-price="9">Add to order</button></div>
+        </div>
+      </article>
+
+      <article class="dish" id="p3">
+        <figure class="dish__photo" data-sc-tilt="5"><img src="assets/menu-2.webp" width="1100" height="1100" loading="lazy" alt="Pizza with roasted red peppers, green olives and ricotta"></figure>
+        <div class="label">
+          <p class="label__no">N°3</p>
+          <h3 class="label__name">Peperoni e Olive</h3>
+          <p class="label__what">Tomato, roasted peppers, green olives, ricotta</p>
+          <p class="label__facts"><span>Base · Tomato</span><span>Diet · Vegetarian</span></p>
+          <div class="label__buy"><span class="label__price">€11</span><button class="add" type="button" data-id="peperoni" data-name="Peperoni e Olive" data-price="11">Add to order</button></div>
+        </div>
+      </article>
+
+      <article class="dish" id="p4">
+        <figure class="dish__photo" data-sc-tilt="5"><img src="assets/menu-3.webp" width="1100" height="1100" loading="lazy" alt="Quattro formaggi with melted white and blue cheese"></figure>
+        <div class="label">
+          <p class="label__no">N°4</p>
+          <h3 class="label__name">Quattro Formaggi</h3>
+          <p class="label__what">Fior di latte, gorgonzola, taleggio, grana</p>
+          <p class="label__facts"><span>Base · Bianca</span><span>Diet · Vegetarian</span></p>
+          <div class="label__buy"><span class="label__price">€12</span><button class="add" type="button" data-id="formaggi" data-name="Quattro Formaggi" data-price="12">Add to order</button></div>
+        </div>
+      </article>
+
+      <article class="dish" id="p5">
+        <figure class="dish__photo" data-sc-tilt="5"><img src="assets/menu-4.webp" width="1100" height="1100" loading="lazy" alt="Pizza with mushrooms, cherry tomatoes, black olives and courgette"></figure>
+        <div class="label">
+          <p class="label__no">N°5</p>
+          <h3 class="label__name">Ortolana</h3>
+          <p class="label__what">Tomato, mushrooms, cherry tomatoes, black olives, courgette</p>
+          <p class="label__facts"><span>Base · Tomato</span><span>Diet · Vegetarian</span></p>
+          <div class="label__buy"><span class="label__price">€12</span><button class="add" type="button" data-id="ortolana" data-name="Ortolana" data-price="12">Add to order</button></div>
+        </div>
+      </article>
+
+      <article class="dish" id="p6">
+        <figure class="dish__photo" data-sc-tilt="5"><img src="assets/menu-5.webp" width="1100" height="1100" loading="lazy" alt="Oval pizza topped with prosciutto and fresh rocket on a wooden peel"></figure>
+        <div class="label">
+          <p class="label__no">N°6</p>
+          <h3 class="label__name">Prosciutto e Rucola</h3>
+          <p class="label__what">Fior di latte, prosciutto crudo, rocket, grana</p>
+          <p class="label__facts"><span>Base · Bianca</span><span>Diet · Meat</span></p>
+          <div class="label__buy"><span class="label__price">€14</span><button class="add" type="button" data-id="prosciutto" data-name="Prosciutto e Rucola" data-price="14">Add to order</button></div>
+        </div>
+      </article>
+
+      <article class="dish" id="p7">
+        <figure class="dish__photo" data-sc-tilt="5"><img src="assets/menu-6.webp" width="1100" height="1100" loading="lazy" alt="Marinara with tomato, basil and capers on a wooden table"></figure>
+        <div class="label">
+          <p class="label__no">N°7</p>
+          <h3 class="label__name">Marinara</h3>
+          <p class="label__what">Tomato, garlic, oregano, basil, capers</p>
+          <p class="label__facts"><span>Base · Tomato</span><span>Diet · Vegan</span></p>
+          <div class="label__buy"><span class="label__price">€8</span><button class="add" type="button" data-id="marinara" data-name="Marinara" data-price="8">Add to order</button></div>
+        </div>
+      </article>
+
+      <aside class="rail__note">
+        <p>Something off a pizza, or an allergy? Write it in the notes on your order. The kitchen reads every slip.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 3 · REST (the quiet before the fire) -->
+<section class="rest" data-sc-act="flow" data-sc-drift="#0B0F12">
+  <div class="sc-wrap rest__grid">
+    <div class="rest__copy" data-sc-in>
+      <p class="rest__line">The dough rests for forty-eight hours before anyone stretches it.</p>
+      <p class="sc-body">Type 1 flour, cold water, sea salt and very little yeast. Slow and cold, so it bakes light.</p>
+    </div>
+    <figure class="rest__photo" data-sc-in>
+      <img src="assets/dough.webp" width="1200" height="1600" loading="lazy" alt="Hands pressing out a ball of pizza dough on a floured counter">
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================ 4 · FORNO (the peak) -->
+<section id="oven" class="fire" data-sc-act="pin" data-sc-span="3.6" data-sc-drift="#120906">
+  <div data-sc-stage class="fire__stage">
+    <div class="fire__plate">
+      <picture>
+        <source media="(max-width: 860px)" srcset="assets/fire-m.webp" width="1080" height="1920">
+        <img class="fire__img" src="assets/fire-d.webp" width="2400" height="1350" loading="lazy" alt="Flames curling across the dome of a wood-fired oven">
+      </picture>
+    </div>
+    <div class="fire__scrim" aria-hidden="true"></div>
+
+    <div class="sc-copy sc-copy--lead fire__copy" data-sc-cue="0.16 0.52">
+      <h2 class="sc-display sc-display--xl">Ninety seconds.</h2>
+      <p class="sc-body">Beech and oak burn at the back of the oven. The floor sits near 450 °C, so the crust blisters before the centre can dry out.</p>
+    </div>
+
+    <figure class="fire__pull" data-sc-reveal="up" data-sc-reveal-at="0.5 0.72">
+      <img src="assets/cheese.webp" width="1200" height="1600" loading="lazy" alt="A slice of salame pizza lifted with long strands of melted cheese">
+    </figure>
+
+    <div class="sc-copy sc-copy--lead fire__copy" data-sc-cue="0.62 1.06 0.2 0.02">
+      <h2 class="sc-display sc-display--lg">Then it comes out pulling.</h2>
+      <p class="sc-body">Fior di latte from a dairy in the hills above the lake, sliced the morning it arrives.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 5 · LAGO (visit) -->
+<section id="visit" class="lago" data-sc-act="flow" data-sc-drift="#0A1016">
+  <div class="sc-wrap lago__grid">
+    <figure class="lago__photo">
+      <img data-sc-parallax="-0.7" src="assets/terrace.webp" width="2200" height="1400" loading="lazy" alt="Restaurant terrace on the lakefront at night, lights reflected in the water">
+    </figure>
+    <div class="lago__info" data-sc-in>
+      <h2 class="sc-display sc-display--md">Eat it by the water.</h2>
+      <p class="sc-body">A dozen tables on the lakefront, lit by the town across the bay. Inside when it rains, outside every other night. Tables are not booked online: call, or come early.</p>
+      <dl class="facts">
+        <div><dt>Open</dt><dd>Tuesday to Sunday, 18:00 to 23:00<br>Closed on Monday</dd></div>
+        <div><dt>Find us</dt><dd>Lungolago 7, 23829 Varenna (LC)<br><a href="https://maps.google.com/?q=Varenna+Lake+Como" target="_blank" rel="noopener">Open in Maps</a></dd></div>
+        <div><dt>Call</dt><dd><a href="tel:+390341000000">+39 0341 000 000</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 6 · COMANDA (the close) -->
+<section id="order" class="close" data-sc-act="pin" data-sc-span="1.15" data-sc-drift="#0B0F12">
+  <div data-sc-stage class="close__stage">
+    <div class="close__inner">
+      <div class="close__head">
+        <h2 class="sc-display sc-display--lg">Your order.</h2>
+        <p class="sc-body">Collect it hot from the oven. We confirm every order on WhatsApp within a few minutes.</p>
+      </div>
+
+      <form class="slip" id="slip" novalidate>
+        <header class="slip__head">
+          <p class="slip__house">Forno Lario</p>
+          <p class="slip__meta"><span>Order slip</span><span class="js-date"></span></p>
+        </header>
+
+        <ol class="slip__lines js-lines" aria-live="polite" aria-label="Pizzas on your order"></ol>
+        <p class="slip__empty js-empty">Nothing on the slip yet. Add a pizza from <a href="#menu" data-jump="menu">the menu</a>.</p>
+
+        <p class="slip__total"><span>Total</span><span class="js-total">€0</span></p>
+
+        <div class="slip__fields">
+          <label>Name<input name="name" autocomplete="given-name" placeholder="Giulia" maxlength="40"></label>
+          <label>Pick up at<select name="time" class="js-times"></select></label>
+          <label class="slip__notes">Notes<input name="notes" placeholder="No olives on the Ortolana" maxlength="140"></label>
+        </div>
+
+        <div class="slip__actions">
+          <button class="send" type="submit" disabled>Send on WhatsApp</button>
+          <button class="clear" type="button" disabled>Clear</button>
+        </div>
+        <noscript><p class="slip__noscript">Ordering online needs JavaScript. Call us on +39 0341 000 000 instead.</p></noscript>
+      </form>
+    </div>
+
+    <footer class="foot">
+      <p>Forno Lario · Lungolago 7, Varenna</p>
+      <p>Demo template. Forno Lario is a fictional pizzeria.</p>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<!-- The slip that follows you down the page. It docks into the order slip. -->
+<a class="pill" href="#order" data-jump="order" aria-label="Open your order" hidden>
+  <span class="pill__ticker js-ticker" aria-hidden="true"></span>
+  <span class="pill__sum"><span class="js-count">0</span> on the slip · <b class="js-total">€0</b></span>
+</a>
+
+<script src="scrollcraft.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

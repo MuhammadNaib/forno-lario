@@ -1,0 +1,389 @@
+/* ============================================================================
+   Forno Lario · page styles
+   ----------------------------------------------------------------------------
+   REBRAND HERE. Six colours, two typefaces, one paper colour for the comanda.
+   Everything else on the page derives from these tokens.
+   ========================================================================== */
+:root {
+  --sc-canvas:     #0B0F12;   /* lake at night                     */
+  --sc-surface:    #131A1F;   /* raised panels                     */
+  --sc-ink:        #EFE8DD;   /* primary text                      */
+  --sc-ink-soft:   #A7A398;   /* secondary text                    */
+  --sc-accent:     #E2582B;   /* ember. Buttons and the slip stamp */
+  --sc-accent-ink: #120B07;   /* text on the accent                */
+
+  --sc-font-display: "Bodoni Moda", "Lora", Georgia, serif;
+  --sc-font-text:    "Geist", "Inter", system-ui, sans-serif;
+  --sc-font-mono:    var(--sc-font-text);
+
+  --paper:      #EDE6D8;      /* the comanda slip                  */
+  --paper-ink:  #1C1814;
+  --paper-soft: #5E564B;
+  --stamp:      #A8391A;      /* accent darkened for text on paper */
+  --sky-ink:    #0B0F12;      /* wordmark over the lavender sky    */
+
+  --sc-r-sm: 4px; --sc-r-md: 8px; --sc-r-lg: 14px;
+  --bar-h: 3.5rem;
+}
+
+/* ----------------------------------------------------------------- base -- */
+.skip { position: fixed; left: 1rem; top: -4rem; z-index: 100; background: var(--sc-accent); color: var(--sc-accent-ink); padding: .6rem 1rem; border-radius: var(--sc-r-sm); }
+.skip:focus { top: 1rem; }
+.sc-display { font-weight: 500; }
+.sc-display em, .wordmark em, .bar__mark em { font-style: italic; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* ------------------------------------------------------------------ bar -- */
+.bar {
+  position: fixed; inset: 0 0 auto 0; z-index: var(--sc-z-chrome);
+  height: var(--bar-h);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding-inline: var(--sc-gutter);
+  background: color-mix(in oklab, var(--sc-canvas) 78%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--sc-hairline);
+}
+.bar__mark { font-family: var(--sc-font-display); font-size: 1.35rem; text-decoration: none; letter-spacing: -0.01em; }
+.bar__nav { display: flex; align-items: center; gap: clamp(.75rem, 2.2vw, 2rem); font-size: var(--sc-t-sm); }
+.bar__link { text-decoration: none; color: var(--sc-ink-soft); }
+.bar__link:hover { color: var(--sc-ink); }
+.bar__slip {
+  text-decoration: none; padding: .42rem .8rem; border-radius: var(--sc-r-pill);
+  background: var(--sc-accent); color: var(--sc-accent-ink); font-weight: 600;
+}
+.bar__slip .js-count { font-variant-numeric: tabular-nums; }
+
+.index { position: relative; }
+.index summary { list-style: none; cursor: pointer; color: var(--sc-ink-soft); }
+.index summary::-webkit-details-marker { display: none; }
+.index summary:hover, .index[open] summary { color: var(--sc-ink); }
+.index__n { font-size: .72em; vertical-align: super; color: var(--sc-accent); }
+.index__list {
+  position: absolute; right: -1rem; top: calc(100% + .9rem);
+  width: 17.5rem; margin: 0; padding: .5rem; list-style: none;
+  background: var(--sc-surface); border: 1px solid var(--sc-hairline-strong);
+  border-radius: var(--sc-r-md); box-shadow: var(--sc-e3), var(--sc-edge);
+}
+.index__list a {
+  display: grid; grid-template-columns: 1.6rem 1fr auto; gap: .4rem; align-items: baseline;
+  padding: .55rem .6rem; border-radius: var(--sc-r-sm); text-decoration: none;
+}
+.index__list a:hover, .index__list a:focus-visible { background: color-mix(in oklab, var(--sc-ink) 7%, transparent); }
+.index__list span { font-family: var(--sc-font-display); font-style: italic; color: var(--sc-accent); }
+.index__list b { font-weight: 500; color: var(--sc-ink-soft); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 640px) {
+  .bar__link { display: none; }
+  .bar__mark { font-size: 1.15rem; }
+  .index__list { position: fixed; left: var(--sc-gutter); right: var(--sc-gutter); top: calc(var(--bar-h) + .5rem); width: auto; }
+}
+
+/* ---------------------------------------------------------------- label --
+   One schema for every pizza: N°, name, what is on it, two facts, price, add. */
+.label__no { margin: 0; font-family: var(--sc-font-display); font-style: italic; font-size: var(--sc-t-lg); color: var(--sc-accent); }
+.label__name { margin: .1rem 0 .5rem; font-family: var(--sc-font-display); font-weight: 500; font-size: var(--sc-t-xl); line-height: var(--sc-leading-tight); letter-spacing: var(--sc-track-snug); }
+.label__what { margin: 0; color: var(--sc-ink-soft); max-width: 34ch; }
+.label__facts { margin: .9rem 0 0; display: flex; flex-wrap: wrap; gap: .35rem 1.1rem; font-size: var(--sc-t-xs); letter-spacing: .04em; text-transform: uppercase; color: var(--sc-ink-soft); }
+.label__buy { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--sc-hairline); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.label__price { font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-variant-numeric: lining-nums tabular-nums; }
+
+.add {
+  appearance: none; border: 1px solid color-mix(in oklab, var(--sc-accent) 70%, transparent);
+  background: transparent; color: var(--sc-ink); cursor: pointer;
+  min-height: 2.75rem; padding: .55rem 1rem; border-radius: var(--sc-r-pill);
+  font-size: var(--sc-t-sm); font-weight: 500;
+  transition: background-color var(--sc-d-base) var(--sc-ease-out), color var(--sc-d-base) var(--sc-ease-out), transform var(--sc-d-fast) var(--sc-ease-out);
+}
+.add::before { content: "+ "; color: var(--sc-accent); transition: color var(--sc-d-base) var(--sc-ease-out); }
+.add:hover { background: var(--sc-accent); color: var(--sc-accent-ink); }
+.add:hover::before { color: var(--sc-accent-ink); }
+.add:active { transform: scale(.96); }
+.add[data-qty]::after { content: " · " attr(data-qty); font-variant-numeric: tabular-nums; }
+
+/* ================================================================ 1 · HERO
+   --t is the hero's own progress, finished by p = 0.7 so the last third of the
+   pin holds the settled table with the label on it. */
+.hero__stage { --t: min(1, calc(var(--sc-p, 0) / 0.7)); background: var(--sc-canvas); }
+
+.hero__lake, .hero__lake img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__lake img { object-fit: cover; object-position: 50% 40%; }
+.hero__lake {
+  transform-origin: 50% 30%;
+  transform: translate3d(0, calc(var(--t) * -5vh), 0) scale(calc(1.04 + var(--t) * 0.07));
+  opacity: calc(1 - var(--t) * 0.85);
+}
+.hero__dusk {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, transparent 30%, var(--sc-canvas) 100%);
+  opacity: calc(0.25 + var(--t) * 0.75);
+}
+
+.hero__mark {
+  position: absolute; z-index: 2;
+  right: var(--sc-gutter); top: calc(var(--bar-h) + 4vh);
+  text-align: right; color: var(--sky-ink);
+  transform: translate3d(0, calc(var(--t) * -7vh), 0);
+  opacity: clamp(0, calc((1 - var(--t)) * 4), 1);
+}
+.wordmark {
+  margin: 0; font-family: var(--sc-font-display); font-weight: 500;
+  font-size: clamp(3.6rem, 1.5rem + 8vw, 10rem);
+  line-height: .9; letter-spacing: -0.03em;
+}
+.hero__line { margin: .9rem 0 0; font-size: var(--sc-t-base); font-weight: 500; }
+
+/* The table rises from below and slides OVER the wordmark: that occlusion is
+   the depth. Pizza and shadow ride the table, so the contact point holds. */
+.hero__table {
+  position: absolute; z-index: 3; left: 0; right: 0; top: 80vh; height: 120vh;
+  background:
+    radial-gradient(70% 38% at 30% 18%, color-mix(in oklab, #3a2a20 55%, transparent), transparent 70%),
+    linear-gradient(to bottom, rgba(23,28,32,0) 0, #171c20 7vh, #0d1114 40%, var(--sc-canvas) 100%);
+  transform: translate3d(0, calc(var(--t) * -72vh), 0);
+}
+.hero__ember {
+  position: absolute; z-index: 3; left: 0; right: 0; top: 80vh; height: 40vh; pointer-events: none;
+  background: radial-gradient(50% 60% at 30% 0%, color-mix(in oklab, var(--sc-accent) 22%, transparent), transparent 70%);
+  opacity: calc(var(--t) * 0.9);
+  transform: translate3d(0, calc(var(--t) * -72vh), 0);
+}
+.hero__dish {
+  --size: min(64vh, 44vw);
+  position: absolute; z-index: 4; left: 12vw; top: calc(80vh + 5vh); width: var(--size); height: var(--size);
+  transform: translate3d(0, calc(var(--t) * -72vh + (1 - var(--t)) * 5vh), 0);
+}
+.hero__pizza {
+  position: relative; width: 100%; height: 100%;
+  transform: rotate(calc(var(--t) * -16deg)) scale(calc(1.08 - var(--t) * 0.08));
+}
+.hero__shadow {
+  position: absolute; inset: -8%; border-radius: 50%;
+  background: radial-gradient(closest-side, hsl(var(--sc-shadow-color) / .75) 62%, hsl(var(--sc-shadow-color) / .3) 80%, transparent 100%);
+  transform: translate3d(2%, 4%, 0);
+}
+
+.label--hero {
+  position: absolute; z-index: 5;
+  right: var(--sc-gutter); top: 50%; translate: 0 -40%;
+  width: min(26rem, 34vw);
+}
+
+@media (max-width: 860px) {
+  .hero__mark { left: var(--sc-gutter); right: var(--sc-gutter); top: calc(var(--bar-h) + 3vh); text-align: left; }
+  .wordmark { font-size: min(15.5vw, 5.5rem); white-space: nowrap; }
+  .hero__line { margin-top: .55rem; font-size: var(--sc-t-sm); }
+  .hero__table, .hero__ember { top: 78svh; }
+  .hero__dish { --size: min(80vw, 42svh); left: 50%; margin-left: calc(var(--size) / -2); top: calc(78svh + 3svh); }
+  .hero__table, .hero__ember { transform: translate3d(0, calc(var(--t) * -70svh), 0); }
+  .hero__dish { transform: translate3d(0, calc(var(--t) * -70svh + (1 - var(--t)) * 4svh), 0); }
+  .label--hero { left: var(--sc-gutter); right: var(--sc-gutter); width: auto; top: auto; bottom: 4svh; translate: none; }
+  .label--hero .label__what { max-width: none; }
+}
+
+/* ============================================================== 2 · CARTA */
+.carta__stage { display: flex; align-items: center; padding-bottom: 5.5rem; }
+@media (max-width: 860px) { .carta__stage { padding-bottom: 4.5rem; } }
+.rail {
+  position: relative;
+  gap: clamp(2rem, 4vw, 4.5rem); align-items: center;
+  padding-inline: var(--sc-gutter) 30vw;
+  padding-top: var(--bar-h);
+}
+.rail > * { flex: 0 0 auto; }
+.rail__lead { width: min(24rem, 80vw); }
+.rail__lead .sc-body { margin-top: 1rem; }
+.dish { width: clamp(17rem, 26vw, 24rem); }
+.dish__photo { margin: 0 0 1.4rem; aspect-ratio: 1; border-radius: var(--sc-r-lg); overflow: hidden; box-shadow: var(--sc-e3); background: var(--sc-surface); }
+.dish__photo img { width: 100%; height: 100%; object-fit: cover; }
+.rail__note { width: min(19rem, 72vw); color: var(--sc-ink-soft); font-family: var(--sc-font-display); font-style: italic; font-size: var(--sc-t-lg); line-height: 1.35; }
+.rail__note p { margin: 0; }
+
+@media (max-width: 860px) {
+  .dish { width: 76vw; }
+  .dish__photo { width: min(76vw, 38svh); margin-bottom: 1rem; }
+  .dish .label__name { margin-bottom: .3rem; }
+  .dish .label__facts { margin-top: .6rem; }
+  .dish .label__buy { margin-top: .8rem; padding-top: .8rem; }
+  .rail { padding-right: 12vw; }
+}
+
+/* =============================================================== 3 · REST
+   The quiet beat. Lots of air, one sentence, the hands in the dough. */
+.rest { padding-block: clamp(7rem, 16vw, 15rem); }
+.rest__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 7vw, 8rem); align-items: end; }
+.rest__line { margin: 0 0 1.5rem; font-family: var(--sc-font-display); font-size: var(--sc-t-2xl); line-height: 1.12; letter-spacing: var(--sc-track-snug); max-width: 18ch; }
+.rest__photo { margin: 0; border-radius: var(--sc-r-lg); overflow: hidden; aspect-ratio: 3 / 4; max-width: 28rem; justify-self: end; width: 100%; }
+.rest__photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 860px) {
+  .rest__grid { grid-template-columns: 1fr; }
+  .rest__photo { justify-self: stretch; max-width: none; aspect-ratio: 4 / 5; }
+}
+
+/* =============================================================== 4 · FIRE */
+.fire__stage { background: #050302; }
+.fire__plate, .fire__plate picture { position: absolute; inset: 0; }
+/* The oven door: a small glowing circle while the act slides in, opening to
+   the full frame across the first third of the pin. */
+.fire__plate { clip-path: circle(min(78%, calc(16% + var(--sc-p, 0) * 210%)) at 50% 46%); }
+.fire__img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(calc(1.2 - var(--sc-p, 0) * 0.2));
+  transform-origin: 50% 45%;
+}
+/* Scrim only under the copy, bottom left. */
+.fire__scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top right, rgba(5,3,2,.97) 0%, rgba(5,3,2,.9) 34%, rgba(5,3,2,.55) 52%, transparent 70%);
+}
+.fire__copy .sc-body { margin-top: 1rem; max-width: 40ch; color: #CFC4B6; }
+.fire__pull {
+  position: absolute; margin: 0; z-index: 4;
+  right: var(--sc-gutter); top: calc(var(--bar-h) + 6vh);
+  width: min(24rem, 26vw); aspect-ratio: 3 / 4;
+  border-radius: var(--sc-r-lg); overflow: hidden; box-shadow: var(--sc-e3);
+}
+.fire__pull img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 860px) {
+  .fire__scrim { background: linear-gradient(to top, rgba(5,3,2,.97) 0%, rgba(5,3,2,.88) 30%, rgba(5,3,2,.4) 46%, transparent 58%); }
+  .fire__pull { right: auto; left: 50%; margin-left: calc(min(56vw, 30svh) / -2); width: min(56vw, 30svh); top: calc(var(--bar-h) + 3svh); }
+}
+
+/* =============================================================== 5 · LAGO */
+.lago { padding-block: var(--sc-section); }
+.lago__grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.lago__photo { margin: 0; overflow: hidden; border-radius: var(--sc-r-lg); aspect-ratio: 4 / 3; }
+.lago__photo img { width: 100%; height: calc(100% + 140px); margin-top: -70px; object-fit: cover; }
+.lago__info .sc-body { margin-top: 1.2rem; }
+.facts { margin: 2rem 0 0; display: grid; gap: 1.1rem; }
+.facts div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--sc-hairline); }
+.facts dt { font-size: var(--sc-t-xs); text-transform: uppercase; letter-spacing: .06em; color: var(--sc-ink-soft); padding-top: .2rem; }
+.facts dd { margin: 0; }
+.facts a { color: var(--sc-ink); text-decoration-color: var(--sc-accent); }
+@media (max-width: 860px) {
+  .lago__grid { grid-template-columns: 1fr; }
+  .facts div { grid-template-columns: 5.5rem 1fr; }
+}
+
+/* ============================================================ 6 · COMANDA */
+.close__stage { display: flex; flex-direction: column; justify-content: center; padding-top: var(--bar-h); }
+.close__inner {
+  width: 100%; max-width: var(--sc-maxw); margin-inline: auto; padding-inline: var(--sc-gutter);
+  display: grid; grid-template-columns: 1fr minmax(20rem, 27rem); gap: clamp(2rem, 7vw, 8rem); align-items: center;
+}
+.close__head .sc-body { margin-top: 1rem; }
+
+/* The slip: a waiter's order pad, typeset like the menu labels. */
+.slip {
+  background: var(--paper); color: var(--paper-ink);
+  padding: 1.4rem 1.4rem 1.2rem; border-radius: 3px;
+  box-shadow: var(--sc-e3);
+  font-size: var(--sc-t-sm);
+  transform: rotate(-1.2deg);
+  /* torn top edge */
+  -webkit-mask: radial-gradient(6px at 50% 0, #0000 98%, #000) 50% 0 / 14px 100% repeat-x;
+          mask: radial-gradient(6px at 50% 0, #0000 98%, #000) 50% 0 / 14px 100% repeat-x;
+}
+.slip__head { border-bottom: 1.5px dashed color-mix(in oklab, var(--paper-ink) 35%, transparent); padding: .3rem 0 .8rem; }
+.slip__house { margin: 0; font-family: var(--sc-font-display); font-style: italic; font-size: 1.5rem; line-height: 1; }
+.slip__meta { margin: .4rem 0 0; display: flex; justify-content: space-between; text-transform: uppercase; letter-spacing: .08em; font-size: .7rem; color: var(--paper-soft); }
+.slip__lines { list-style: none; margin: 0; padding: .4rem 0; max-height: min(32svh, 15rem); overflow-y: auto; }
+.slip__lines li {
+  display: grid; grid-template-columns: 2.2rem 1fr auto 1.9rem; align-items: center; gap: .4rem;
+  padding: .45rem 0; border-bottom: 1px dotted color-mix(in oklab, var(--paper-ink) 25%, transparent);
+}
+.slip__qty { font-family: var(--sc-font-display); font-style: italic; font-size: 1.1rem; color: var(--stamp); font-variant-numeric: tabular-nums; }
+.slip__name { font-weight: 500; }
+.slip__sum { font-variant-numeric: tabular-nums; }
+.slip__x {
+  appearance: none; border: 0; background: none; cursor: pointer; color: var(--paper-soft);
+  width: 1.9rem; height: 1.9rem; border-radius: 50%; font-size: 1.1rem; line-height: 1;
+}
+.slip__x:hover { color: var(--stamp); background: color-mix(in oklab, var(--paper-ink) 8%, transparent); }
+.slip__empty { margin: .9rem 0; color: var(--paper-soft); }
+.slip__empty a { color: var(--stamp); }
+.slip__total { margin: .4rem 0 0; display: flex; justify-content: space-between; align-items: baseline; padding-top: .6rem; border-top: 1.5px solid var(--paper-ink); }
+.slip__total span:first-child { text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; }
+.slip__total .js-total { font-family: var(--sc-font-display); font-size: 1.7rem; font-variant-numeric: lining-nums tabular-nums; }
+.slip__fields { margin-top: .9rem; display: grid; grid-template-columns: 1fr 7.5rem; gap: .6rem; }
+.slip__fields label { display: grid; gap: .2rem; font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; color: var(--paper-soft); }
+.slip__notes { grid-column: 1 / -1; }
+.slip input, .slip select {
+  font-size: 1rem; text-transform: none; letter-spacing: 0; color: var(--paper-ink);
+  background: color-mix(in oklab, var(--paper) 70%, #fff); border: 1px solid color-mix(in oklab, var(--paper-ink) 22%, transparent);
+  border-radius: 3px; padding: .5rem .55rem; min-height: 2.6rem; width: 100%;
+}
+.slip input::placeholder { color: color-mix(in oklab, var(--paper-soft) 75%, transparent); }
+.slip :focus-visible { outline-color: var(--stamp); }
+.slip__actions { margin-top: 1rem; display: flex; gap: .6rem; }
+.send {
+  flex: 1; appearance: none; border: 0; cursor: pointer; min-height: 3rem; border-radius: 3px;
+  background: var(--paper-ink); color: var(--paper); font-weight: 600; font-size: 1rem;
+  transition: background-color var(--sc-d-base) var(--sc-ease-out), transform var(--sc-d-fast) var(--sc-ease-out);
+}
+.send:hover:not(:disabled) { background: var(--stamp); }
+.send:active:not(:disabled) { transform: scale(.98); }
+.clear { appearance: none; cursor: pointer; background: none; border: 1px solid color-mix(in oklab, var(--paper-ink) 30%, transparent); color: var(--paper-ink); border-radius: 3px; padding: 0 1rem; min-height: 3rem; }
+.send:disabled, .clear:disabled { opacity: .42; cursor: not-allowed; }
+.slip__noscript { margin: .8rem 0 0; color: var(--stamp); }
+
+/* The stamp: a new line presses onto the paper like an ink stamp. */
+@keyframes stamp {
+  0%   { opacity: 0; transform: scale(1.14) rotate(-2deg); }
+  55%  { opacity: 1; transform: scale(.98) rotate(.4deg); }
+  100% { opacity: 1; transform: none; }
+}
+.is-stamped { animation: stamp 420ms var(--sc-ease-out) both; transform-origin: 20% 50%; }
+
+.foot {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding: 1rem var(--sc-gutter); font-size: var(--sc-t-xs); color: var(--sc-ink-soft);
+  border-top: 1px solid var(--sc-hairline);
+}
+.foot p { margin: 0; }
+
+@media (max-width: 860px) {
+  .close__stage { justify-content: flex-start; padding-top: calc(var(--bar-h) + 1rem); }
+  .close__inner { grid-template-columns: 1fr; gap: 1rem; }
+  .close__head .sc-display--lg { font-size: var(--sc-t-2xl); }
+  .close__head .sc-body { margin-top: .4rem; font-size: var(--sc-t-sm); }
+  .slip { transform: none; padding: 1rem 1rem .9rem; }
+  .slip__lines { max-height: 22svh; }
+  .foot { padding-block: .7rem; }
+  .foot p + p { display: none; }
+}
+
+/* ================================================================== pill
+   The slip that follows you. It docks into the comanda (site.js). */
+.pill {
+  position: fixed; z-index: calc(var(--sc-z-chrome) - 1);
+  right: var(--sc-gutter); bottom: max(1.2rem, env(safe-area-inset-bottom));
+  display: grid; gap: .15rem; min-width: 13rem;
+  padding: .7rem 1rem .75rem; border-radius: 3px; text-decoration: none;
+  background: var(--paper); color: var(--paper-ink); box-shadow: var(--sc-e3);
+  transform-origin: 100% 100%;
+  transition: transform 520ms var(--sc-ease-drawer), opacity 360ms var(--sc-ease-out);
+}
+.pill[hidden] { display: none; }
+.pill__ticker { font-family: var(--sc-font-display); font-style: italic; color: var(--stamp); font-size: 1rem; min-height: 1.3em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 16rem; }
+.pill__sum { font-size: var(--sc-t-sm); font-variant-numeric: tabular-nums; }
+.pill.is-docked { opacity: 0; pointer-events: none; }
+@media (max-width: 860px) {
+  .pill { left: var(--sc-gutter); right: var(--sc-gutter); min-width: 0; grid-template-columns: 1fr auto; align-items: center; }
+}
+
+/* ======================================================== reduced motion
+   Fewer and gentler: the hero's planes stop travelling and the table fades in
+   over the lake instead. Every piece of content stays reachable. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__lake, .hero__mark, .hero__pizza, .fire__img { transform: none; }
+  .fire__plate { clip-path: none; }
+  .hero__table, .hero__ember { transform: translate3d(0, -72vh, 0); opacity: clamp(0, calc(var(--t) * 2.2), 1); }
+  .hero__dish { transform: translate3d(0, -72vh, 0); opacity: clamp(0, calc((var(--t) - 0.45) * 3), 1); }
+  .is-stamped { animation-name: none; }
+  .pill { transition: opacity 200ms linear; }
+  .pill.is-docked { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 860px) {
+  .hero__table, .hero__ember, .hero__dish { transform: translate3d(0, -70svh, 0); }
+}
